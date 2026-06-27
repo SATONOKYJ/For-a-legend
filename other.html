@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thank you for all</title>
+
+    <style>
+        .textcik1 {
+            font-size: 24px;
+            color: red;
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .textcik2 {
+            font-size: 24px;
+            color: #00f;
+            text-align: center;
+            margin-top: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mid{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            dimension: 100%;
+        }
+
+        .dot {
+            display: block;
+            width: 250px;           
+            height: 250px;
+            align-items: center;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;         
+            transition: transform 0.2s; 
+            margin-top: 5%;          
+        }
+
+        .dot:hover {
+            transform: scale(1.2);   
+        }
+
+    .endbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f1f1f1;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    </style>
+
+</head>
+<body>
+    <p class="textcik1">
+        There are so many words that I want say to this Legend, but there i'snt enough space to say all of them.
+    </p>
+
+
+
+
+
+
+    <a href="/other.html" id="xd">
+    <div class="mid">
+        <div class="dot">
+            <p class="textcik2">One more thing</p>
+        </div>
+    </div>
+</a>
+
+    <a href="/other.html" id="xd">
+    <div class="mid">
+        <div class="dot">
+            <p class="textcik2">One more thing</p>
+        </div>
+    </div>
+</a>
+
+
+
+<a href="/other.html" id="xd">
+    <div class="mid">
+        <div class="dot">
+            <p class="textcik2">One more thing</p>
+        </div>
+    </div>
+</a>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2/dist/index.umd.js"></script>
+
+    <script>
+    const link = document.getElementById("xd");
+
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // ===== FADE DO CZARNEGO =====
+        const overlay = document.createElement("div");
+        Object.assign(overlay.style, {
+            position: "fixed",
+            inset: "0",
+            background: "black",
+            opacity: "0",
+            transition: "opacity 2.5s ease",
+            zIndex: "99998",
+            pointerEvents: "none"
+        });
+        document.body.appendChild(overlay);
+
+        setTimeout(() => {
+            overlay.style.opacity = "1";
+        }, 50);
+
+        // ===== NAPIS DZIĘKUJĘ =====
+        const text = document.createElement("div");
+        text.innerText = "Dziękuję";
+        Object.assign(text.style, {
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            fontSize: "100px",
+            color: "white",
+            fontWeight: "bold",
+            textShadow: "0 0 20px gold, 0 0 40px orange, 0 0 60px red",
+            zIndex: "100000",
+            pointerEvents: "none"
+        });
+        document.body.appendChild(text);
+
+        // ===== FAJERWERKI (NIESKOŃCZONE) =====
+        const container = document.createElement("div");
+        Object.assign(container.style, {
+            position: "fixed",
+            inset: "0",
+            pointerEvents: "none",
+            zIndex: "99999"
+        });
+        document.body.appendChild(container);
+
+        const fireworks = new Fireworks.default(container, {
+            autoresize: true,
+            opacity: 0.7,
+            particles: 150,
+            explosion: 10,
+            intensity: 50,
+            friction: 0.96,
+            gravity: 1.2
+        });
+
+        fireworks.start();
+
+        // ===== BONUS: lekkie rozjaśnienie napisów + brak końca =====
+        // (nic nie zatrzymuje — działa aż zamkniesz stronę)
+    });
+    </script>
+
+    <div class="endbar">
+        <p>Jeśli coś jest głupie ale działa to jest mądre.</p>
+        <p style="text-align: right;">&sim;Kamil Mojsa</p>
+    </div>
+
+</body>
+</html>
